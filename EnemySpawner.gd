@@ -1,7 +1,7 @@
 extends Spatial
 
 onready var main = get_tree().current_scene
-var Enemy = load("res://Enemy.tscn")
+var Enemy = load("res://enemy.tscn")
 
 func spawn():
 	var enemy = Enemy.instance()
