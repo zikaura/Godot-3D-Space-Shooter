@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Bullet.gd" type="Script" id=1]
+[ext_resource path="res://CS_Scripts/Bullet.cs" type="Script" id=1]
 [ext_resource path="res://Sounds/laser.wav" type="AudioStream" id=2]
 [ext_resource path="res://Sounds/explosion.wav" type="AudioStream" id=3]
 
@@ -50,5 +50,6 @@ volume_db = -11.107
 stream = ExtResource( 2 )
 unit_db = 13.981
 autoplay = true
-[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
-[connection signal="timeout" from="LightTimer" to="." method="_on_LightTimer_timeout"]
+
+[connection signal="body_entered" from="Area" to="." method="_OnAreaBodyEntered"]
+[connection signal="timeout" from="LightTimer" to="." method="_OnLightTimerTimeout"]
