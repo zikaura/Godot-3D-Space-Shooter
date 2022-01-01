@@ -17,13 +17,12 @@ public class Player : KinematicBody
 
     public override void _Ready()
     {
-        var sceneTree = GetTree();
         particles = GetNode<Particles>("Particles");
         _bullet = GD.Load<PackedScene>("res://Bullet.tscn");
         guns[0] = GetNode<Spatial>("Gun0");
         guns[1] = GetNode<Spatial>("Gun1");
 
-        main = sceneTree.CurrentScene;
+        main = GetTree().CurrentScene;
         particles.Emitting = true;
     }
 

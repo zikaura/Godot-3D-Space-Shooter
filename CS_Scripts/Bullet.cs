@@ -10,8 +10,7 @@ public class Bullet : KinematicBody
 
     public override void _Ready()
     {
-        var sceneTree = GetTree();
-        main = sceneTree.CurrentScene;
+        main = GetTree().CurrentScene;
         explodeSound = GetNode<AudioStreamPlayer>("EnemyExplode");
     }
 
@@ -25,7 +24,7 @@ public class Bullet : KinematicBody
     {
         if (body.IsInGroup("Enemies"))
         {
-            var particles = killParticles.Instance<Particles>();
+            var particles = killParticles.Instance<Spatial>();
             main.AddChild(particles);
 
             var newParticleTransform = particles.Transform;
