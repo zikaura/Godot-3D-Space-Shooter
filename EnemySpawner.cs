@@ -6,10 +6,7 @@ public class EnemySpawner : Spatial
     private Node main;
     private PackedScene Enemy = GD.Load<PackedScene>("res://enemy.tscn");
 
-    public override void _Ready()
-    {
-        main = GetTree().CurrentScene;
-    }
+    public override void _Ready() { main = GetTree().CurrentScene; }
 
     public void Spawn()
     {
@@ -23,10 +20,6 @@ public class EnemySpawner : Spatial
         enemy.Transform = newEnemyTransform;
     }
 
-    public void _OnTimerTimeout()
-    {
-        Spawn();
-    }
-
+    public void _OnTimerTimeout() { Spawn(); }
 }
 

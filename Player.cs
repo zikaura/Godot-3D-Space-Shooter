@@ -4,26 +4,27 @@ using System;
 public class Player : KinematicBody
 {
     private const int MAX_SPEED = 300;
-    private const float ACCELERATION = 0.75f;
-    private Vector3 inputVector = new Vector3();
-    private Vector3 velocity = new Vector3();
-    private float cooldown = 0.0f;
     private const float COOLDOWN = 8.0f;
+    private const float ACCELERATION = 0.75f;
 
-    private Spatial[] guns = new Spatial[2];
-    private Particles particles;
+    private float cooldown = 0.0f;
+    private Vector3 velocity = new Vector3();
+    private Vector3 inputVector = new Vector3();
+
     private Node main;
+    private Particles particles;
     private PackedScene _bullet;
+    private Spatial[] guns = new Spatial[2];
 
     public override void _Ready()
     {
-        particles = GetNode<Particles>("Particles");
-        _bullet = GD.Load<PackedScene>("res://Bullet.tscn");
         guns[0] = GetNode<Spatial>("Gun0");
         guns[1] = GetNode<Spatial>("Gun1");
+        particles = GetNode<Particles>("Particles");
+        _bullet = GD.Load<PackedScene>("res://Bullet.tscn");
 
-        main = GetTree().CurrentScene;
         particles.Emitting = true;
+        main = GetTree().CurrentScene;
     }
 
     public override void _PhysicsProcess(float delta)
